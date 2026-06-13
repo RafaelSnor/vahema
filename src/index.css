@@ -1,0 +1,1000 @@
+/* Design System for vahema.com - Premium Editorial Look */
+:root {
+  /* Warm Theme - Paper/Sepia (Default) */
+  --bg-color: #fbf9f6;
+  --panel-bg: #f5eedf;
+  --panel-bg-hover: #ffffff;
+  --text-primary: #2b2520;
+  --text-secondary: #70645a;
+  --accent-color: #c84d33; /* Terracotta Coral */
+  --accent-hover: #aa3720;
+  --border-color: #ebdcc8;
+  --shadow-color: rgba(43, 37, 32, 0.04);
+  --shadow-hover: rgba(43, 37, 32, 0.1);
+  --glow-color: rgba(200, 77, 51, 0.1);
+  
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Charcoal Theme - Elegant Night Reading */
+body.theme-charcoal {
+  --bg-color: #121211;
+  --panel-bg: #1c1c1a;
+  --panel-bg-hover: #262624;
+  --text-primary: #e6e2de;
+  --text-secondary: #a09790;
+  --accent-color: #e5933a; /* Warm Amber Gold */
+  --accent-hover: #f0a855;
+  --border-color: #2b2a28;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --shadow-hover: rgba(0, 0, 0, 0.4);
+  --glow-color: rgba(229, 147, 58, 0.15);
+}
+
+/* Rose Theme - Earthy Terracotta */
+body.theme-rose {
+  --bg-color: #faf5f3;
+  --panel-bg: #efe3df;
+  --panel-bg-hover: #fcf8f7;
+  --text-primary: #3d2925;
+  --text-secondary: #876e68;
+  --accent-color: #b83a14;
+  --accent-hover: #962808;
+  --border-color: #e6d3ce;
+  --shadow-color: rgba(61, 41, 37, 0.03);
+  --shadow-hover: rgba(61, 41, 37, 0.08);
+  --glow-color: rgba(184, 58, 20, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  transition: var(--transition);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Header */
+.site-header {
+  padding: 1rem 0;
+  background-color: var(--bg-color);
+  position: relative;
+  transition: var(--transition);
+}
+
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 1px;
+  background: radial-gradient(circle, var(--border-color) 0%, transparent 100%);
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.logo a {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.03em;
+  transition: var(--transition);
+}
+
+.logo span {
+  color: var(--accent-color);
+  transition: var(--transition);
+}
+
+.tagline {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Theme Switcher Button design */
+.theme-selector {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--panel-bg);
+  padding: 0.25rem;
+  border-radius: 40px;
+  border: 1px solid var(--border-color);
+}
+
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 30px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: var(--transition);
+  outline: none;
+}
+
+.theme-btn span {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .theme-btn span {
+    display: inline;
+  }
+}
+
+.theme-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.theme-btn.active {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* Minimalist Audio Button & Wave */
+.ambient-audio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 20px;
+}
+
+.ambient-audio-btn:hover {
+  color: var(--accent-color);
+  background: var(--panel-bg);
+}
+
+.ambient-audio-btn span {
+  display: none;
+}
+
+@media (min-width: 580px) {
+  .ambient-audio-btn span {
+    display: inline;
+  }
+}
+
+.audio-wave {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+  width: 18px;
+}
+
+.audio-wave .stroke {
+  background: currentColor;
+  height: 25%;
+  width: 2px;
+  border-radius: 50px;
+  transition: height 0.3s ease;
+}
+
+/* Animate strokes on play */
+.ambient-audio-btn.playing .audio-wave .stroke:nth-child(1) { animation: waveGrow 1.2s ease-in-out infinite alternate; }
+.ambient-audio-btn.playing .audio-wave .stroke:nth-child(2) { animation: waveGrow 0.8s ease-in-out infinite alternate-reverse; }
+.ambient-audio-btn.playing .audio-wave .stroke:nth-child(3) { animation: waveGrow 1.4s ease-in-out infinite alternate; }
+.ambient-audio-btn.playing .audio-wave .stroke:nth-child(4) { animation: waveGrow 1s ease-in-out infinite alternate-reverse; }
+.ambient-audio-btn.playing .audio-wave .stroke:nth-child(5) { animation: waveGrow 0.6s ease-in-out infinite alternate; }
+
+@keyframes waveGrow {
+  0% { height: 20%; }
+  100% { height: 100%; }
+}
+
+/* Navigation Menu */
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent-color);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 0.5rem 0;
+}
+
+.view {
+  animation: elegantFade 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes elegantFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Featured Poem Card */
+.featured-poem-card {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.featured-poem-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px var(--shadow-hover);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+.featured-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.featured-date {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.featured-excerpt {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  max-width: 700px;
+}
+
+.btn-read-featured {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 1.75rem;
+  background-color: var(--text-primary);
+  color: var(--bg-color);
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-read-featured:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--glow-color);
+}
+
+/* Search Bar */
+.search-bar-wrapper {
+  position: relative;
+  margin-bottom: 3.5rem;
+}
+
+#search-input {
+  width: 100%;
+  padding: 1.2rem 1.5rem 1.2rem 3.75rem;
+  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  background-color: var(--panel-bg);
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+#search-input:focus {
+  border-color: var(--accent-color);
+  background-color: var(--panel-bg-hover);
+  box-shadow: 0 10px 25px var(--shadow-hover), 0 0 0 3px var(--glow-color);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--text-secondary);
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+#search-input:focus + .search-icon {
+  color: var(--accent-color);
+}
+
+/* Section Title */
+.section-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.section-count {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+/* Poems Grid */
+.poems-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+}
+
+@media (min-width: 680px) {
+  .poems-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.poem-card {
+  background-color: var(--panel-bg);
+  border: 1px solid transparent;
+  border-radius: 24px;
+  padding: 2.5rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  box-shadow: 0 6px 18px var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.poem-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--accent-color);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.poem-card:hover {
+  transform: translateY(-6px);
+  background-color: var(--panel-bg-hover);
+  border-color: var(--border-color);
+  box-shadow: 0 15px 35px var(--shadow-hover);
+}
+
+.poem-card:hover::before {
+  opacity: 1;
+}
+
+.card-date {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.card-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  transition: var(--transition);
+}
+
+.poem-card:hover .card-title {
+  color: var(--accent-color);
+}
+
+.card-excerpt {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  opacity: 0.9;
+}
+
+.read-more {
+  margin-top: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: var(--transition);
+}
+
+.poem-card:hover .read-more {
+  gap: 0.6rem;
+  color: var(--accent-hover);
+}
+
+/* Load More Button */
+.load-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 30px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px var(--shadow-color);
+  outline: none;
+}
+
+.load-more-btn:hover {
+  background: var(--panel-bg-hover);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--shadow-hover);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  border: 1px dashed var(--border-color);
+  border-radius: 20px;
+  background: var(--panel-bg);
+}
+
+/* Poem Detail View */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 3rem;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.back-button svg {
+  transition: var(--transition);
+}
+
+.back-button:hover {
+  color: var(--accent-color);
+}
+
+.back-button:hover svg {
+  transform: translateX(-5px);
+}
+
+.poem-header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  transition: var(--transition);
+}
+
+.print-btn, .share-btn, .focus-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.print-btn:hover, .share-btn:hover, .focus-toggle-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: var(--bg-color);
+}
+
+.focus-toggle-btn.active {
+  background-color: var(--accent-color);
+  color: #fff;
+  border-color: var(--accent-color);
+}
+
+.poem-article {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 28px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  position: relative;
+  transition: var(--transition);
+}
+
+@media (max-width: 600px) {
+  .poem-article {
+    padding: 1.5rem;
+  }
+}
+
+.decorative-top-line {
+  width: 50px;
+  height: 2px;
+  background-color: var(--accent-color);
+  margin: 0 auto 1.25rem auto;
+}
+
+.poem-detail-title {
+  font-size: 2.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.poem-detail-date {
+  text-align: center;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+  max-width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.poem-detail-body {
+  font-size: 1.25rem;
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 0 auto 2rem auto;
+  white-space: pre-wrap;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.poem-detail-body span {
+  color: inherit !important;
+}
+
+/* Elegant Staggered Fade-in Animation for paragraphs */
+.poem-paragraph-animated {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: paragraphReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes paragraphReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Elegant Drop Cap */
+.poem-detail-body p:first-of-type::first-letter {
+  font-size: 3.25rem;
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.3rem;
+  margin-top: 0.15rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  font-family: var(--font-serif);
+}
+
+.poem-detail-body p {
+  margin-bottom: 0.75rem;
+}
+
+.poem-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 2.5rem;
+}
+
+.tag {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  padding: 0.35rem 1rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: var(--transition);
+}
+
+.tag:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* Editorial Separator (Quill/Leaf design) */
+.editorial-separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0 0.5rem 0;
+  color: var(--border-color);
+}
+
+.editorial-separator svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.signature-name {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+/* Biography / Tribute Section */
+.bio-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .bio-section {
+    grid-template-columns: 320px 1fr;
+  }
+}
+
+.bio-photo-frame {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.bio-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 12px;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-secondary);
+  border: 1px dashed var(--border-color);
+}
+
+.bio-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bio-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.bio-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* Floating Random Poem Action Button */
+.floating-random-btn {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--text-primary);
+  color: var(--bg-color);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 100;
+  outline: none;
+}
+
+.floating-random-btn:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+  transform: translateY(-4px) rotate(8deg);
+  box-shadow: 0 12px 30px var(--glow-color);
+}
+
+/* Toast Notification (Slide up/fade) */
+.toast-notification {
+  position: fixed;
+  bottom: -4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--text-primary);
+  color: var(--bg-color);
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.toast-notification.show {
+  bottom: 3rem;
+  opacity: 1;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 5rem 0;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--panel-bg);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  letter-spacing: 0.02em;
+}
+
+.footer-logo {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.footer-logo span {
+  color: var(--accent-color);
+}
+
+.credits {
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* Immersion / Focus Mode Active Styles */
+.focus-mode-active .site-header,
+.focus-mode-active .site-footer,
+.focus-mode-active .poem-header-actions .back-button,
+.focus-mode-active .poem-header-actions .share-btn,
+.focus-mode-active .poem-header-actions .print-btn,
+.focus-mode-active .floating-random-btn {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(-10px);
+}
+
+.focus-mode-active .poem-header-actions {
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.focus-mode-active .poem-article {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  transform: scale(1.02);
+}
+
+/* Vignette overlay backdrop for Focus Mode */
+.poetry-site::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.04) 100%);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 5;
+  transition: opacity 0.8s ease;
+}
+
+body.theme-charcoal .poetry-site::before {
+  background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.focus-mode-active.poetry-site::before {
+  opacity: 1;
+}
+
+/* Print Rules */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  
+  .site-header, 
+  .theme-selector,
+  .nav-menu,
+  .back-button,
+  .print-btn,
+  .share-btn,
+  .focus-toggle-btn,
+  .poem-tags,
+  .floating-random-btn,
+  .toast-notification,
+  .site-footer {
+    display: none !important;
+  }
+  
+  .main-content {
+    padding: 0 !important;
+  }
+  
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  
+  .poem-article {
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    padding: 0 !important;
+  }
+  
+  .poem-detail-title {
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .poem-detail-date {
+    border-bottom: 1px solid #ccc !important;
+    padding-bottom: 1rem !important;
+    margin-bottom: 3rem !important;
+  }
+  
+  .poem-detail-body {
+    font-size: 1.25rem !important;
+    line-height: 1.8 !important;
+  }
+}
